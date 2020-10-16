@@ -1,4 +1,4 @@
-# How-to-get-rid-of-default-padding-around-the-numeric-entry-SfNumericTextBox-in-Xamarin.Forms
+# How to get rid of default padding around the numeric entry (SfNumericTextBox) in Xamarin.Forms
 
 This article explains how to remove or adjust the default padding around the Xamarin.Forms Syncfusion SfNumericTextBox and its background with the following steps
 
