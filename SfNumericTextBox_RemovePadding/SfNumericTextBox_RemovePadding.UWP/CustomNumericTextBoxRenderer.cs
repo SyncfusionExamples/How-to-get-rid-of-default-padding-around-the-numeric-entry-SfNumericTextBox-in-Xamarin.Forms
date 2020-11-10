@@ -16,8 +16,7 @@ namespace SfNumericTextBox_RemovePadding.UWP
 
             if (Control != null)
             {
-                Control.BorderThickness = new Windows.UI.Xaml.Thickness(0);
-                Control.Padding = new Windows.UI.Xaml.Thickness(0);
+                Control.Padding = new Windows.UI.Xaml.Thickness(0, Control.Padding.Top, Control.Padding.Right, Control.Padding.Bottom);
             }
         }
     }

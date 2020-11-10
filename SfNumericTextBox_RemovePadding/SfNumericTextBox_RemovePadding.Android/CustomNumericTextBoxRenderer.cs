@@ -16,10 +16,8 @@ namespace SfNumericTextBox_RemovePadding.Droid
 
             if (Control != null)
             {
-               Control.Background = null;
-               Control.SetPadding(0, 0,0,0);
-            
+                Control.SetPadding(0, Control.PaddingTop, Control.PaddingRight, Control.PaddingBottom);
             }
         }
-	}
+    }
 }

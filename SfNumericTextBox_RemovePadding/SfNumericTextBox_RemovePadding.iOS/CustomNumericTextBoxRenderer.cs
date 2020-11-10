@@ -18,10 +18,6 @@ namespace SfNumericTextBox_RemovePadding.iOS
 
 			if (Control != null)
 			{
-                Control.BorderStyle = UIKit.UITextBorderStyle.None;
-                Control.Layer.CornerRadius = 0f;
-                Control.Layer.BorderColor = Color.Transparent.ToCGColor();
-                Control.Layer.BorderWidth = 0;
                 var leftPadding = typeof(Syncfusion.SfNumericTextBox.iOS.SfNumericTextBox).GetProperty("EditTextLeftPadding", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
                 leftPadding.SetValue(Control, 0);
             }
