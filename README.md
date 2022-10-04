@@ -1,105 +1,52 @@
-# How to get rid of default left padding for the numeric entry (SfNumericTextBox) in Xamarin.Forms
+# How to get rid of default padding around the numeric entry SfNumericTextBox in Xamarin.Forms
 
-This article explains how to remove or adjust the default left padding of the Xamarin.Forms Syncfusion SfNumericTextBox with the following steps
- 	 
+This repository contains sample for how to remove or adjust the default left padding of the [Syncfusion Xamarin.Forms Numeric TextBox](https://help.syncfusion.com/xamarin/numeric-entry/getting-started) control.
 
-![](default_appearance.png)
+Please refer the KB through this [link](https://www.syncfusion.com/kb/12083/how-to-get-rid-of-default-left-padding-for-the-numeric-entry-sfnumerictextbox-in-xamarin).
 
-*Fig1: Default appearance of SfNumericTextBox*
+## Syncfusion controls:
 
+This project used the following Syncfusion control(s):
+* [SfNumericTextBox](https://www.syncfusion.com/xamarin-ui-controls/xamarin-numeric-entry)
 
-![](removing_padding.png)
+## Supported platforms
 
-*Fig2: After removing its default left padding*
+| Platforms | Supported versions |
+| --------- | ------------------ |
+| Android   | API level 21 and later versions |
+| iOS | iOS 9.0 and later versions |
+| UWP | Windows 10 devices |
 
- 
-**Step 1:** Create a custom SfNumericTextBox control, since it has been achieved through the custom renderer with the platform specific.
- 
- ```
-[C#]
-    public class CustomNumericTextBox : SfNumericTextBox
-    {
+## Requirements to run the sample
 
-    }
-```
-**Step 2:** Add the CustomNumericTextBox control into your UI as follows.
- ```
-[XAML]
-  …
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
 
- <local:CustomNumericTextBox Value="123" VerticalOptions="Center" BackgroundColor="LightGray"/>
+Refer to the following link for more details - [System Requirements](https://help.syncfusion.com/xamarin-ios/system-requirements)
 
- …
-```
+## How to run the sample
 
-**Step 3:** Create a custom renderer to remove the default left padding of the SfNumericTextBox using the platform specific code.
- 
-**Android: CustomNumericTextBoxRenderer.cs**
+1. Clone the sample and open it in Visual Studio.
 
-By setting the value 0 to the parameter left of SetPadding method of native control.
- 
-  ```
-[C#]
+   *Note: If you download the sample using the "Download ZIP" option, right-click it, select Properties, and then select Unblock.*
+   
+2. Register your license key in the App.xaml.cs file as demonstrated in the following code.
 
-  protected override void OnElementChanged(ElementChangedEventArgs<Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox> e)
+		public App()
 		{
-			base.OnElementChanged(e);
+			//Register Syncfusion license
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("YOUR LICENSE KEY");
+	
+			InitializeComponent();
+	
+			MainPage = new App1.MainPage();
+		}
+		
+	Refer to this [link](https://help.syncfusion.com/xamarin/licensing/overview) for more details.
+	
+3. Clean and build the application.
 
-            if (Control != null)
-            {
-                Control.SetPadding(0, Control.PaddingTop, Control.PaddingRight, Control.PaddingBottom);
-            }
-        }
+4. Run the application.
 
+## License
 
-```
-**iOS: CustomNumericTextBoxRenderer.cs**
-
-Default left padding has been overridden through the EditTextLeftPadding. By using the reflection, it has been modified in iOS platform as shown in below
-
-```
-[C#]
-		protected override void OnElementChanged(ElementChangedEventArgs<SfNumericTextBox> e)
-		{
-			base.OnElementChanged(e);
-
-			if (Control != null)
-			{
-                var leftPadding = typeof(Syncfusion.SfNumericTextBox.iOS.SfNumericTextBox).GetProperty("EditTextLeftPadding", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-                leftPadding.SetValue(Control, 0);
-            }
-        }
-```
-**UWP: CustomNumericTextBoxRenderer.cs**
-
-By setting the desired value to the Padding of native control, it will be achieved as shown in below
- 
- ```
-[C#]
-       protected override void OnElementChanged(ElementChangedEventArgs<SfNumericTextBox> e)
-        {
-            base.OnElementChanged(e);
-
-            if (Control != null)
-            {
-                Control.Padding = new Windows.UI.Xaml.Thickness(0, Control.Padding.Top, Control.Padding.Right, Control.Padding.Bottom);
-            }
-        }
-
-```
-
-## See also
-
-[How to create a borderless Xamarin.Forms SfNumericTextBox](https://www.syncfusion.com/kb/11980/how-to-create-a-borderless-xamarin-forms-numeric-control-sfnumerictextbox)
-
-[How to assign nullable values in Xamarin.Forms SfNumericTextBox](https://help.syncfusion.com/xamarin/numeric-entry/assign-nullable-value)
-
-[How to customize the colors in Xamarin.Forms SfNumericTextBox](https://help.syncfusion.com/xamarin/numeric-entry/colors)
-
-[How to format the numeric value in Xamarin.Forms SfNumericTextBox](https://help.syncfusion.com/xamarin/numeric-entry/number-formatting)
-
-[Available interaction in numeric control](https://help.syncfusion.com/xamarin/numeric-entry/events-and-interactivity)
-
-
-
-
+Syncfusion has no liability for any damage or consequence that may arise by using or viewing the samples. The samples are for demonstrative purposes, and if you choose to use or access the samples, you agree to not hold Syncfusion liable, in any form, for any damage that is related to use, for accessing, or viewing the samples. By accessing, viewing, or seeing the samples, you acknowledge and agree Syncfusion’s samples will not allow you seek injunctive relief in any form for any claim related to the sample. If you do not agree to this, do not view, access, utilize, or otherwise do anything with Syncfusion’s samples.
