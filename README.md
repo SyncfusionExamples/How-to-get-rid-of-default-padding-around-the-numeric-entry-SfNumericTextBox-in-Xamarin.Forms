@@ -1,6 +1,6 @@
 # How to get rid of default padding around the numeric entry SfNumericTextBox in Xamarin.Forms
 
-This repository contains sample for how to remove or adjust the default left padding of the [Syncfusion Xamarin.Forms Numeric TextBox](https://help.syncfusion.com/xamarin/numeric-entry/getting-started) control.
+This repository contains sample to remove or adjust the default left padding of the [Syncfusion Xamarin.Forms Numeric TextBox](https://help.syncfusion.com/xamarin/numeric-entry/getting-started) control.
 
 Please refer the KB through this [link](https://www.syncfusion.com/kb/12083/how-to-get-rid-of-default-left-padding-for-the-numeric-entry-sfnumerictextbox-in-xamarin).
 
